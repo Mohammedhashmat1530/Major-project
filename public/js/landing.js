@@ -28,7 +28,7 @@ async function SendFeedback() {
 
   console.log(obj);
 
-  let res = await fetch(`${window.location.origin}/feedback`, {
+  let res = await fetch(`${window.location.origin}/feedback`, {// (protocol, domain, and port) of the web page where the script is running
     method: "POST",
     body: JSON.stringify(obj),
     headers: {

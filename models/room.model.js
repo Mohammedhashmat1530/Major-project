@@ -18,11 +18,11 @@ const roomSchema = new Schema(
   },
   {
     timestamps: true,
-    toObject: { virtuals: true },
+    toObject: { virtuals: true },// When set to true converting a Mongoose document to a plain JavaScript object
     toJSON: { virtuals: true },
   }
 );
-
+//odm-object data modelling 
 roomSchema.virtual("user", {
   ref: "User",
   localField: "admin",

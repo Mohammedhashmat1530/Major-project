@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const path = require("path");
+const path = require("path")
 const app = express();
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
@@ -12,6 +12,7 @@ const {
   getRoom,
   chatRoomMW,
   roomMW,
+  CompilerMW,
 } = require("./controllers/Room/index");
 const { sendInvite, mailFeedback } = require("./controllers/Misc");
 const { createUser, addRooms, getUser } = require("./controllers/User");
@@ -29,6 +30,8 @@ app.get("/", (req, res) => {
 app.get("/timeline", (req, res) => {
   res.render("timeline");
 });
+
+
 
 app.get("/landing", (req, res) => {
   res.render("landing");
@@ -62,6 +65,8 @@ app.post("/user/get", getUser);
 
 // <---------- MW-VIEWS ---------->
 app.get("/chat/:room", chatRoomMW);
+
+app.get("/compiler/:room", CompilerMW);
 
 app.get("/:room", roomMW);
 

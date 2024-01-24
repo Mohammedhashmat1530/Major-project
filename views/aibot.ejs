@@ -53,7 +53,7 @@
 
         model = await tmPose.load(modelURL, metadataURL);
         // you need to create File objects, like with file input elements (<input type="file" ...>)
-        // const uploadModel = document.getElementById('upload-model');
+        const uploadModel = document.getElementById('upload-model');
         // const uploadWeights = document.getElementById('upload-weights');
         // const uploadMetadata = document.getElementById('upload-metadata');
         // model = await tmPose.loadFromFiles(uploadModel.files[0], uploadWeights.files[0], uploadMetadata.files[0])
@@ -108,7 +108,7 @@
           group.push(prediction);
         }
         checkPosture(group);
-        // console.log(group)
+        console.log(group)
         for (let i = 0; i < maxPredictions; i++) {
           const classPrediction =
             prediction[i].className +
@@ -123,9 +123,9 @@
       function notifyMe(message) {
         // Let's check if the browser supports notifications
         const startover = function () {
-          // console.log('NOTIFICATION CLICKed')
+          console.log('NOTIFICATION CLICKed')
           toggle = true;
-          // console.log(toggle)
+          console.log(toggle)
           window.requestAnimationFrame(loop);
           group = [];
         };

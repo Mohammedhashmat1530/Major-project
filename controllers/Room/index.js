@@ -87,6 +87,24 @@ const chatRoomMW = async (req, res) => {
   return res.redirect("/home");
 };
 
+
+const CompilerMW = async (req, res) => {
+  try {
+    const room = await Room.findOne({ roomID: req.params.room });
+    if (room) {
+      return res.render("compiler", { roomId: req.params.room });
+    }
+  } catch (err) {
+    console.error(err);
+    return res.redirect("/home");
+  }
+  return res.redirect("/home");
+};
+
+
+
+
+
 // <--------- meet room ---------> 👈🏻
 const roomMW = async (req, res) => {
   try {
@@ -107,4 +125,5 @@ module.exports = {
   getRoomByUser,
   chatRoomMW,
   roomMW,
+  CompilerMW,
 };
